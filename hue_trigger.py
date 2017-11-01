@@ -3,26 +3,36 @@ import sys
 import os
 import requests
 import time
-import pickle
-from lxml import etree
-import xml.etree.ElementTree as ET
+import json
 
-def hueRequest(url, method, message)
+import hue_config.py as cfg
 
-if len(sys.argv) < 1;
+def hueRequest(url, method, message):
+    
+
+if len(sys.argv) < 2;
     print('You must pass a command')
 
 else:
     dir_path = os.path.dirname(os.path.realpath(__file__))
-    with open(dir_path + '/hue_bridge.txt', 'rb') as myFile:
-        cfg = pickle.load(myFile)
-        
-    bridge = cfg.bridge_ip
-        
-    arg = sys.argv[1]
     
-    if( arg == "register" ):
+    bridge_ip = cfg.bridge_ip
+    username = cfg.username
+    baseurl = 'http://' + bridge_ip + '/api/' + username + '/lights'
+        
+    arg = sys.argv[1].lower()
+    arg = arg.lstrip()
     
+    if( arg == "state" ):
+        try:
+            response = requests.get(baseurl, timeout=2)
+            content = response.read()
+            data = json.loads(content)
+            print data
+        except requests.RequestException, e:
+            print e
+        
+
   
         
   
