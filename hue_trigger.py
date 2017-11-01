@@ -5,7 +5,7 @@ import requests
 import time
 import json
 
-import hue_config.py as cfg
+import hue_config as cfg
 
 def hueRequest(url, method, message):
     
@@ -13,9 +13,7 @@ def hueRequest(url, method, message):
 if len(sys.argv) < 2;
     print('You must pass a command')
 
-else:
-    dir_path = os.path.dirname(os.path.realpath(__file__))
-    
+else:   
     bridge_ip = cfg.bridge_ip
     username = cfg.username
     baseurl = 'http://' + bridge_ip + '/api/' + username + '/lights'
