@@ -21,9 +21,7 @@ else:
     if( arg == "state" ):
         try:
             response = requests.get(baseurl, timeout=2)
-            content = response.read()
-            data = json.loads(content)
-            print data
+            print response.text
         except requests.RequestException, e:
             print e
         
