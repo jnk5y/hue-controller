@@ -7,7 +7,7 @@ import json
 
 import hue_config as cfg    
 
-if len(sys.argv) < 2;
+if len(sys.argv) < 2:
     print('You must pass a command')
 
 else:   
