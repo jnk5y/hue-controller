@@ -5,10 +5,7 @@ import requests
 import time
 import json
 
-import hue_config as cfg
-
-def hueRequest(url, method, message):
-    
+import hue_config as cfg    
 
 if len(sys.argv) < 2;
     print('You must pass a command')
